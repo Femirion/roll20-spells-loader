@@ -3,6 +3,8 @@ package com.femirion.roll20spellsloader.service;
 import com.femirion.roll20spellsloader.config.Roll20Config;
 import com.femirion.roll20spellsloader.model.Result;
 import com.femirion.roll20spellsloader.model.Spell;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,16 +14,12 @@ import java.util.List;
 
 import static com.femirion.roll20spellsloader.utils.Utils.waitSeconds;
 
+@Slf4j
+@AllArgsConstructor
 @Service
 public class SpellLoader {
-
     private final Roll20Config roll20Config;
     private final WebDriver driver;
-
-    public SpellLoader(Roll20Config roll20Config, WebDriver driver) {
-        this.roll20Config = roll20Config;
-        this.driver = driver;
-    }
 
     public Result load(List<Spell> spells) {
         openSpellList();
@@ -34,17 +32,13 @@ public class SpellLoader {
 
             List<WebElement> elements = driver.findElements(
                     By.xpath("//div[@class=\"sheet-options\"]/div/input[@name=\"attr_spellname\"]"));
-
-            int x = 0 ;
         }
-
 
         try {
             Thread.sleep(10000);
         } catch (Exception ex) {
             System.out.println("test!!!  ===> " + ex);
         }
-
 
         return new Result();
     }
@@ -65,9 +59,5 @@ public class SpellLoader {
         waitSeconds(driver, 5, By.xpath(charsheetXpath));
         WebElement spells = driver.findElement(By.xpath(spellsXpath));
         spells.click();
-
-
-
-
     }
 }

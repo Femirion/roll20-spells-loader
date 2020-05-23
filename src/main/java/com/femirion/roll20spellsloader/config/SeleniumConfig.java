@@ -17,5 +17,4 @@ public class SeleniumConfig {
         System.setProperty("webdriver.chrome.driver", webDriverPath);
         return new ChromeDriver();
     }
-
 }

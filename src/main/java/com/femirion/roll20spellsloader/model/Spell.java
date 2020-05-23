@@ -28,9 +28,4 @@ public class Spell {
     private String damage;
     private String text;
     private List<GameClass> classes;
-
-    public Level getLevel() {
-        return level;
-    }
-
 }

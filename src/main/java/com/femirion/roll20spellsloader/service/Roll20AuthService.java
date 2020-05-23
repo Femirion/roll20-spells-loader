@@ -2,6 +2,7 @@ package com.femirion.roll20spellsloader.service;
 
 import com.femirion.roll20spellsloader.config.Roll20Config;
 import com.femirion.roll20spellsloader.model.Result;
+import lombok.AllArgsConstructor;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,16 +12,11 @@ import java.util.concurrent.TimeUnit;
 
 import static com.femirion.roll20spellsloader.utils.Utils.waitSeconds;
 
+@AllArgsConstructor
 @Service
 public class Roll20AuthService {
-
     private final Roll20Config config;
     private final WebDriver driver;
-
-    public Roll20AuthService(Roll20Config config, WebDriver driver) {
-        this.config = config;
-        this.driver = driver;
-    }
 
     public Result auth() {
         driver.get(config.getGameUrl());

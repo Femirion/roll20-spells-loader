@@ -1,8 +1,10 @@
 package com.femirion.roll20spellsloader.config;
 
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
+@Getter
 @Configuration("roll20")
 public class Roll20Config {
     @Value("${roll20.gameUrl}")
@@ -15,24 +17,4 @@ public class Roll20Config {
     private String journalUrl;
     @Value("${roll20.heroId}")
     private String heroId;
-
-    public String getGameUrl() {
-        return gameUrl;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getJournalUrl() {
-        return journalUrl;
-    }
-
-    public String getHeroId() {
-        return heroId;
-    }
 }

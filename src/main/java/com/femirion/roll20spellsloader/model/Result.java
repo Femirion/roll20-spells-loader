@@ -1,5 +1,10 @@
 package com.femirion.roll20spellsloader.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
+@Getter
 public class Result {
     private final int status;
     private final String msg;
@@ -9,16 +14,7 @@ public class Result {
         this.msg = "ok";
     }
 
-    public Result(int status, String msg) {
-        this.status = status;
-        this.msg = msg;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public String getMsg() {
-        return msg;
+    public boolean isError() {
+        return status != 200;
     }
 }
