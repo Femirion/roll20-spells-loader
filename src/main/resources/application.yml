@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+selenium:
+  web-driver-path: /home/steam/projects/roll20-spells-loader/src/main/resources/chromedriver
+
+roll20:
+  gameUrl: https://app.roll20.net/campaigns/details/*****
+  email: ****
+  password: ****
+  journalUrl: https://app.roll20.net/editor/#journal
+  heroId: Tordah
